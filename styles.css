@@ -1,0 +1,32 @@
+/* custom properties */
+
+:root {
+    --PrimaryColor: rgb(24, 85, 69);
+}
+
+/* page layout */
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+
+/* ---------header--------- */
+
+header {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+/* ---------main content--------- */
+
+.add-book {
+    background-color: var(--PrimaryColor);
+}
+
+/* ---------footer--------- */
+
+footer {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+}

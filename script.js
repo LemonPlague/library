@@ -1,3 +1,4 @@
+// --------VARIABLES--------
 
 
 const myLibrary = [];
@@ -10,4 +11,5 @@ function Book() {
 
 function addBookToLibrary() {
     // do stuff here biatch
+    // prompt user for books to be added to the library
 }
