@@ -1,6 +1,7 @@
-// --------VARIABLES--------
+// --------INITIAL VARIABLES--------
+const button = document.querySelector('button');
 
-
+// Array to hold multiple cards
 const myLibrary = [];
 
 
@@ -10,6 +11,6 @@ function Book() {
 
 
 function addBookToLibrary() {
-    // do stuff here biatch
-    // prompt user for books to be added to the library
+    //1. prompt user for information
+    
 }
