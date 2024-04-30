@@ -12,7 +12,6 @@
     0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="script.js"></script>
 
     <!-- page top -->
     <header>
@@ -28,7 +27,7 @@
         <button class="add-that-book">Add book +</button>
     </div>
     <!-- dialogue popup to add a new book -->
-    <dialog id="book-dialogue">
+    <dialog id="book-dialog">
         <form method="dialog">
             <h1>Add a book</h1>
             <label for="title">
@@ -41,7 +40,7 @@
             </label>
             <label for="length">
                 Length (audio or pages):
-                <input type="text" id="length" placeholder="21 hours" required maxlength="10">
+                <input type="text" id="length" placeholder="21 hours" required maxlength="15">
             </label>
             <div class="book-type" id="checkboxes">
                 <label for="audio">
@@ -79,5 +78,7 @@
         <div class="created-by">Created by The Juice</div>
         <div class="github-link"></div>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
