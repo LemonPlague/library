@@ -3,7 +3,10 @@
 // javascript to parse the input of 'length' and
 // mark the entry as either audio or paper based on the 
 // type of units that were used.
-
+// 2. come up with pseudo code to color code cards based
+// on above information
+// 3. come up with pseudo code to color code cards based
+// on the read-status of the book
 
 
 

@@ -50,6 +50,10 @@ header {
 .card-space {
     display: grid;
 }
+.card {
+    height: 100px;
+    width: 100px;
+}
 
 /* --DIALOG-- */
 #book-dialog {
@@ -102,7 +106,6 @@ form input:focus {
 
 
 /* ---------footer--------- */
-
 footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
