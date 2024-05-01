@@ -1,6 +1,7 @@
 /* --------TODO-------- */
 /* 1. fix the input boxes in the dialog popup */
-
+/* 2. add a regex filter to ensure "length" field is properly input */
+/* 3. change checkboxes so that only one option can be selected */
 
 
 /* remove default styles */
@@ -74,11 +75,19 @@ header {
 #checkboxes label {
     font-size: 12px;
 }
+form input {
+    padding: 3px 0 3px 3px;
+}
 #checkboxes input {
     vertical-align: middle;
 }
+form input:focus {
+    outline: 1px solid rgb(0, 190, 250);
+    border-radius: 5px;
+}
 .submit-button {
-    background-color: none;
+    background-color: salmon;
+    border-radius: 5px;
     align-self: center;
     height: 30px;
     width: 90px;
