@@ -33,13 +33,17 @@ body {
 header {
     display: grid;
     grid-template-columns: 1fr 5fr;
+    padding: 15px 0 15px 0;
 }
 
 /* ---------main content--------- */
-
-.add-book {
+.main {
     background-color: var(--PrimaryColor);
+}
+.add-book {
+    background-color: yellowgreen;
     text-align: center;
+    padding: 5px 0 15px 0;
 }
 
 .add-book button {
@@ -105,4 +109,11 @@ form input:focus {
 footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+.created-by {
+    font-weight: bold;
+    font-size: 1.5rem;
 }
