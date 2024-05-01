@@ -95,7 +95,8 @@ form input:focus {
 
 /* add blur effect later? */
 #book-dialog::backdrop {
-    background-color: rgba(39, 38, 38, 0.5);
+    background-color: rgba(39, 38, 38, 0.2);
+    backdrop-filter: blur(2px);
 }
 
 
