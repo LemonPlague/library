@@ -1,5 +1,4 @@
 /* --------TODO-------- */
-/* 1. fix the input boxes in the dialog popup */
 /* 2. add a regex filter to ensure "length" field is properly input */
 /* 3. change checkboxes so that only one option can be selected */
 
@@ -14,22 +13,19 @@
 
 
 /* custom properties */
-
 :root {
     --PrimaryColor: rgb(24, 85, 69);
     --offWhiteColor: rgb(229, 237, 241);
 }
 
 /* page layout */
-
 body {
     display: grid;
-    grid-template-rows: 1fr 20fr 1fr;
+    grid-template-rows: 1fr 10fr 1fr;
     font-family: 'Roboto', sans-serif;   
 }
 
 /* ---------header--------- */
-
 header {
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -41,18 +37,21 @@ header {
     background-color: var(--PrimaryColor);
 }
 .add-book {
-    background-color: yellowgreen;
     text-align: center;
     padding: 5px 0 15px 0;
 }
-
 .add-book button {
     height: 30px;
     width: 100px;
     margin-top: 10px;
-    
+    background-color: salmon;
+    border-radius: 5px;
 }
-/* ---------DIALOG--------- */
+.card-space {
+    display: grid;
+}
+
+/* --DIALOG-- */
 #book-dialog {
     justify-self: center;
     align-self: center;
@@ -96,8 +95,6 @@ form input:focus {
     height: 30px;
     width: 90px;
 }
-
-/* add blur effect later? */
 #book-dialog::backdrop {
     background-color: rgba(39, 38, 38, 0.2);
     backdrop-filter: blur(2px);
