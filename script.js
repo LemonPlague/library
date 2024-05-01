@@ -32,18 +32,6 @@ addNewBookButton.addEventListener('click', () => {
     dialog.showModal();
 })
 
-// handle dialogue
-function displayDialog() {
-    // 1. prompt user (popup dialogue) for information when "add book" button is pushed
-    //Popup the dialog window when the button is pushed.
-    
-    // 2a. if anywhere outside the dialog window is clicked, close dialogue and clear info
-
-
-
-// 2b. if submit is pressed, store info as object using the book constructor
-}
-
 
 
 
