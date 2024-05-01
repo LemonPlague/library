@@ -42,6 +42,22 @@ header {
     margin-top: 10px;
     
 }
+/* ---------DIALOG--------- */
+#book-dialog {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    width: 300px;
+
+    border-radius: 20px;
+    box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.589);
+    border: none;
+}
+/* add blur effect later? */
+#book-dialog::backdrop {
+    background-color: rgba(39, 38, 38, 0.5);
+}
+
 
 /* ---------footer--------- */
 
