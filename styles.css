@@ -1,3 +1,8 @@
+/* --------TODO-------- */
+/* 1. fix the input boxes in the dialog popup */
+
+
+
 /* remove default styles */
 * {
     border: none;
@@ -53,11 +58,10 @@ header {
     box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.589);
     border: none;
 }
-
 #book-dialog form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 #book-dialog form h1 {
     padding-top: 10px;
@@ -66,6 +70,18 @@ header {
 #book-dialog label {
     padding: 0 10px 0 10px;
     font-weight: bold;
+}
+#checkboxes label {
+    font-size: 12px;
+}
+#checkboxes input {
+    vertical-align: middle;
+}
+.submit-button {
+    background-color: none;
+    align-self: center;
+    height: 30px;
+    width: 90px;
 }
 
 /* add blur effect later? */
