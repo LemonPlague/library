@@ -47,10 +47,18 @@ function Book(title, author, length, readStatus) {
 // this should happen when the submit button is pushed.
 function addBookToLibrary() {
     //1. need to get value from the forms
+    getValuesFromDialog();
+
     //2. need to push that data into the object
     //3. need to loop through said object to put data into card
+}
 
-
-    
-    
+// get value from dialog
+function getValuesFromDialog() {
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const length = document.querySelector('#length').value;
+    const readStatus = document.querySelector('#checkboxes').checked;
+    const newBook = new Book(title, author, length, readStatus);
+    return newBook;
 }
