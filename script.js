@@ -18,16 +18,15 @@ const dialog = document.querySelector('#book-dialog');
 // Array to hold multiple cards
 const myLibrary = [];
 
-
-function Book(title, author, length, bookType, readStatus) {
+// Book constructor
+function Book(title, author, length, readStatus) {
     this.title = title;
     this.author = author;
     this.length = length;
-    this.bookType = bookType;
     this.readStatus = readStatus;
 }
 
-
+// open the dialog when the button is clicked
 addNewBookButton.addEventListener('click', () => {
     dialog.showModal();
 })

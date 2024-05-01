@@ -52,18 +52,18 @@
                 <input type="text" id="length" placeholder="21 hours / 180 pages"
                  required maxlength="15" pattern="[\d]{1,4} [\w]{5}">
             </label>
-            <div class="read-status" id="checkboxes">
+            <div class="read-status" id="checkboxes">                
                 <label for="OnHold">
                     On Hold
-                    <input type="checkbox" id="OnHold">
+                    <input name="status" type="radio" value="on-hold" id="OnHold">
                 </label>
                 <label for="InProgress">
                     In Progress
-                    <input type="checkbox" id="InProgress">
+                    <input name="status" type="radio" value="in-progress" id="InProgress">
                 </label>
                 <label for="Complete">
                     Complete
-                    <input type="checkbox" id="Complete">
+                    <input name="status" type="radio" value="complete" id="Complete">
                 </label>
             </div>
             <button class="submit-button" type="submit" value="Add book">Submit</button>
