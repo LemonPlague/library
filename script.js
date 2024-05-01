@@ -15,6 +15,23 @@ const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
 
+
+
+
+// --------EVENT LISTENERS--------
+// open the dialog when the button is clicked
+addNewBookButton.addEventListener('click', () => {
+    dialog.showModal();
+})
+// close the dialog when clicking outside of it
+dialog.addEventListener('click', (event) => {
+    if(event.target === dialog){
+      dialog.close();
+    }
+});
+
+
+
 // Array to hold multiple cards
 const myLibrary = [];
 
@@ -26,20 +43,14 @@ function Book(title, author, length, readStatus) {
     this.readStatus = readStatus;
 }
 
-// open the dialog when the button is clicked
-addNewBookButton.addEventListener('click', () => {
-    dialog.showModal();
-})
 
-
-
-
+// this should happen when the submit button is pushed.
 function addBookToLibrary() {
+    //1. need to get value from the forms
+    //2. need to push that data into the object
+    //3. need to loop through said object to put data into card
 
 
     
-    // 3. add the new object to the myLibrary[] array.
-    
-    // 4. create a div with class '.card' to display the data prompt user for information
     
 }
