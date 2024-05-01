@@ -46,13 +46,28 @@ header {
 #book-dialog {
     justify-self: center;
     align-self: center;
-    text-align: center;
     width: 300px;
+    height: 300px;
 
     border-radius: 20px;
     box-shadow: 0 0 50px 0 rgba(255, 255, 255, 0.589);
     border: none;
 }
+
+#book-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#book-dialog form h1 {
+    padding-top: 10px;
+    align-self: center;
+}
+#book-dialog label {
+    padding: 0 10px 0 10px;
+    font-weight: bold;
+}
+
 /* add blur effect later? */
 #book-dialog::backdrop {
     background-color: rgba(39, 38, 38, 0.5);

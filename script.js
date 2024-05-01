@@ -1,3 +1,12 @@
+// --------TODO--------
+// 1. remove the "book type" options and instead use
+// javascript to parse the input of 'length' and
+// mark the entry as either audio or paper based on the 
+// type of units that were used.
+
+
+
+
 // --------INITIAL VARIABLES--------
 const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
