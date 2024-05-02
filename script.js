@@ -32,6 +32,7 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     
     //3. need to loop through said object to put data into card
+    bookObjectToCardData(newBook);
 }
 
 
@@ -58,7 +59,7 @@ function Book(title, author, length, readStatus) {
     this.readStatus = readStatus;
 }
 
-// get valueS from dialog
+// get values from dialog
 function getValuesFromDialog() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
@@ -66,4 +67,8 @@ function getValuesFromDialog() {
     const readStatus = document.querySelector('#checkboxes').checked;
     let newBook = new Book(title, author, length, readStatus);
     return newBook;
+}
+
+function bookObjectToCardData(book) {
+    
 }
