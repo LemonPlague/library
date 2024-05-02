@@ -35,14 +35,6 @@ dialog.addEventListener('click', (event) => {
 // Array to hold multiple cards
 let myLibrary = [];
 
-// Book constructor
-function Book(title, author, length, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.length = length;
-    this.readStatus = readStatus;
-}
-
 
 // this should happen when the submit button is pushed.
 function addBookToLibrary() {
@@ -53,6 +45,16 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     
     //3. need to loop through said object to put data into card
+}
+
+// ------------ FUNCTIONS ------------
+
+// Book constructor
+function Book(title, author, length, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.length = length;
+    this.readStatus = readStatus;
 }
 
 // get value from dialog
