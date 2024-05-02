@@ -33,7 +33,7 @@ dialog.addEventListener('click', (event) => {
 
 
 // Array to hold multiple cards
-const myLibrary = [];
+let myLibrary = [];
 
 // Book constructor
 function Book(title, author, length, readStatus) {
@@ -50,6 +50,8 @@ function addBookToLibrary() {
     getValuesFromDialog();
 
     //2. need to push that data into the object
+    myLibrary.push(newBook);
+    
     //3. need to loop through said object to put data into card
 }
 
@@ -59,6 +61,6 @@ function getValuesFromDialog() {
     const author = document.querySelector('#author').value;
     const length = document.querySelector('#length').value;
     const readStatus = document.querySelector('#checkboxes').checked;
-    const newBook = new Book(title, author, length, readStatus);
+    let newBook = new Book(title, author, length, readStatus);
     return newBook;
 }
