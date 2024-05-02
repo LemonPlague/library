@@ -10,7 +10,7 @@
 
 
 
-// --------INITIAL VARIABLES--------
+// ------------INITIAL VARIABLES------------
 const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
@@ -18,20 +18,7 @@ const dialog = document.querySelector('#book-dialog');
 
 
 
-// --------EVENT LISTENERS--------
-// open the dialog when the button is clicked
-addNewBookButton.addEventListener('click', () => {
-    dialog.showModal();
-})
-// close the dialog when clicking outside of it
-dialog.addEventListener('click', (event) => {
-    if(event.target === dialog){
-      dialog.close();
-    }
-});
-
-
-
+// ------------ MAIN CODE ------------
 // Array to hold multiple cards
 let myLibrary = [];
 
@@ -47,8 +34,22 @@ function addBookToLibrary() {
     //3. need to loop through said object to put data into card
 }
 
-// ------------ FUNCTIONS ------------
 
+// ------------EVENT LISTENERS------------
+// open the dialog when the button is clicked
+addNewBookButton.addEventListener('click', () => {
+    dialog.showModal();
+})
+// close the dialog when clicking outside of it
+dialog.addEventListener('click', (event) => {
+    if(event.target === dialog){
+      dialog.close();
+    }
+});
+
+
+
+// ------------ FUNCTIONS ------------
 // Book constructor
 function Book(title, author, length, readStatus) {
     this.title = title;
@@ -57,7 +58,7 @@ function Book(title, author, length, readStatus) {
     this.readStatus = readStatus;
 }
 
-// get value from dialog
+// get valueS from dialog
 function getValuesFromDialog() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
