@@ -79,7 +79,7 @@ function getValuesFromDialog() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
     const length = document.querySelector('#length').value;
-    const readStatus = document.querySelector('#checkboxes').checked;
+    const readStatus = document.querySelector('input[name="status"]:checked').value;
     return new Book(title, author, length, readStatus);
 }
 
@@ -142,7 +142,7 @@ function ClearDialog() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#length').value = '';
-    document.querySelector('#checkboxes').checked = '';
+    document.querySelector('#status-radio').checked = '';
 }
 
 function LoopOverMyLibrary(newBook) {
