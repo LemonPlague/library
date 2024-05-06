@@ -14,18 +14,16 @@
 const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
-
-
-
-
-// ------------ MAIN CODE ------------
 // Array to hold multiple cards
 const myLibrary = [];
 
 
-// this should happen when the submit button is pushed.
+
+// ------------ MAIN FUNCTION ------------
+//----when the submit button is pushed----
+
 function addBookToLibrary() {
-    //1. get value from the forms
+    //1. get values from the dialog
     const newBook = getValuesFromDialog();
 
     //1.5 clear the dialog
