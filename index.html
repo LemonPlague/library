@@ -1,12 +1,3 @@
-<!-- TODO
-
-1. FIX THE LENGTH REGEX
-
--->
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +8,7 @@
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@
-    0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -47,30 +37,30 @@
             <h1>Add a book</h1>
             <label for="title">
                 Title: 
-                <input type="text" id="title" placeholder="Dune"
+                <input name="title" type="text" id="title" placeholder="Dune"
                  required pattern="[a-zA-Z0-9 ]{3,50}"
                  title="Title should contain only lowercase and uppercase letters, and numbers.">
             </label>
             <label for="author">
                 Author:
-                <input type="text" id="author" placeholder="Frank Herbert"
+                <input name="author" type="text" id="author" placeholder="Frank Herbert"
                  required pattern="[a-zA-Z ]{3,20}">
             </label>
             <label for="length">
                 Length:
-                <input type="text" id="length" placeholder="21 hours / 180 pages"
+                <input name="length" type="text" id="length" placeholder="21 hours / 180 pages"
                  required maxlength="15" pattern="[\d]{1,4} [\w]{5}">
             </label>
             <div class="read-status" id="checkboxes">                
-                <label for="OnHold">
+                <label for="on-hold">
                     On Hold
                     <input name="status" type="radio" value="on-hold" id="on-hold" required>
                 </label>
-                <label for="InProgress">
+                <label for="in-progress">
                     In Progress
                     <input name="status" type="radio" value="in-progress" id="in-progress" required>
                 </label>
-                <label for="Complete">
+                <label for="complete">
                     Complete
                     <input name="status" type="radio" value="complete" id="complete" required>
                 </label>

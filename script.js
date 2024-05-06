@@ -60,7 +60,7 @@ dialog.addEventListener('click', (event) => {
 });
 //cancel dialog-server communication and then
 //execute main functions
-submitButton.addEventListener("click", (e) => {
+submitButton.addEventListener("click", () => {
     // e.preventDefault();
     addBookToLibrary();
 });
