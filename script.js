@@ -26,14 +26,17 @@ function addBookToLibrary() {
     //1. get values from the dialog
     const newBook = getValuesFromDialog();
 
-    //1.5 clear the dialog
+    //2 clear the dialog
     ClearDialog();
 
-    //2. push that data into the object
+    //3. push that data into the object
     myLibrary.push(newBook);
     
-    //3. loop through array to put object data into cards
+    //4. loop through array to put object data into cards
     bookObjectToCardData();
+
+    //5. close the dialog
+    
 }
 
 
