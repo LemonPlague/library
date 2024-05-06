@@ -14,6 +14,7 @@
 const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
+const cardSpace = document.querySelector('.card-space');
 let indexID = 0;
 // Array to hold multiple cards
 const myLibrary = [];
@@ -74,7 +75,6 @@ function Book(newTitle, newAuthor, newLength, newReadStatus) {
     this.readStatus = newReadStatus;
 }
 
-// get values from dialog
 function getValuesFromDialog() {
     const title = document.querySelector('#title').value;
     const author = document.querySelector('#author').value;
@@ -83,11 +83,7 @@ function getValuesFromDialog() {
     return new Book(title, author, length, readStatus);
 }
 
-function bookObjectToCardData(book) {
-
-    //get card-space div
-    const cardSpace = document.querySelector('.card-space');
-        
+function bookObjectToCardData(book) {    
     //1. create a card for each book
     //----element creation from largest to smallest (top section)----
     let card = document.createElement('div');
