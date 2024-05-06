@@ -26,17 +26,16 @@ function addBookToLibrary() {
     //1. get values from the dialog
     const newBook = getValuesFromDialog();
 
-    //2 clear the dialog
+    //2. clear the dialog
     ClearDialog();
+    //2.1 close dialog
+    dialog.close();
 
     //3. push that data into the object
     myLibrary.push(newBook);
     
     //4. loop through array to put object data into cards
     bookObjectToCardData();
-
-    //5. close the dialog
-    
 }
 
 
@@ -87,6 +86,7 @@ function bookObjectToCardData() {
         //----element creation from largest to smallest (top section)----
         let card = document.createElement('div');
         card.setAttribute(`class`, `card`);
+        card.id = `card_${index}`;
         //div to hold title & author
         let coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
