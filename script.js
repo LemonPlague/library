@@ -20,13 +20,13 @@ const dialog = document.querySelector('#book-dialog');
 
 // ------------ MAIN CODE ------------
 // Array to hold multiple cards
-let myLibrary = [];
+const myLibrary = [];
 
 
 // this should happen when the submit button is pushed.
 function addBookToLibrary() {
     //1. get value from the forms
-    getValuesFromDialog();
+    const newBook = getValuesFromDialog();
 
     //2. push that data into the object
     myLibrary.push(newBook);
@@ -52,11 +52,11 @@ dialog.addEventListener('click', (event) => {
 
 // ------------ FUNCTIONS ------------
 // Book constructor
-function Book(title, author, length, readStatus) {
-    this.title = title;
-    this.author = author;
-    this.length = length;
-    this.readStatus = readStatus;
+function Book(newTitle, newAuthor, newLength, newReadStatus) {
+    this.title = newTitle;
+    this.author = newAuthor;
+    this.length = newLength;
+    this.readStatus = newReadStatus;
 }
 
 // get values from dialog
@@ -65,8 +65,7 @@ function getValuesFromDialog() {
     const author = document.querySelector('#author').value;
     const length = document.querySelector('#length').value;
     const readStatus = document.querySelector('#checkboxes').checked;
-    const newBook = new Book(title, author, length, readStatus);
-    return newBook;
+    return new Book(title, author, length, readStatus);
 }
 
 function bookObjectToCardData(newBook) {
