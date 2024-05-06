@@ -28,6 +28,9 @@ function addBookToLibrary() {
     //1. get value from the forms
     const newBook = getValuesFromDialog();
 
+    //1.5 clear the dialog
+    ClearDialog();
+
     //2. push that data into the object
     myLibrary.push(newBook);
     
@@ -136,4 +139,11 @@ function bookObjectToCardData() {
         cardSpace.appendChild(card);
 
     });
+}
+
+function ClearDialog() {
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#length').value = '';
+    document.querySelector('#checkboxes').checked = '';
 }
