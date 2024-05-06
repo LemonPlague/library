@@ -60,8 +60,8 @@ dialog.addEventListener('click', (event) => {
 });
 //cancel dialog-server communication and then
 //execute main functions
-submitButton.addEventListener("click", () => {
-    // e.preventDefault();
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
     addBookToLibrary();
 });
 
@@ -135,14 +135,32 @@ function bookObjectToCardData(book) {
     coverDiv.appendChild(authorDiv);
     card.appendChild(coverDiv);
     card.appendChild(infoDiv);
-    cardSpace.appendChild(card);      
+    cardSpace.appendChild(card);
+    
+    //4. pimp out the aesthetics
+    // --length--
+    const lengthType = lengthP.textContent.split(' ');
+    if (lengthType[1] == 'hours') {
+        lengthDiv.style.backgroundColor = '#c98cc1';
+    } else {
+        lengthDiv.style.backgroundColor = '#8c90c9';
+    }
+
+    // --status--
+    if (statusP.textContent == 'on-hold') {
+        statusDiv.style.backgroundColor = '#eca95d';
+    } else if (statusP.textContent == 'in-progress') {
+        statusDiv.style.backgroundColor = '#5dc3ec';
+    } else {
+        statusDiv.style.backgroundColor = '#8cc98c';
+    }
 }
 
 function ClearDialog() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#length').value = '';
-    document.querySelector('input[name="status"]:checked').value = '';
+    document.querySelector('input[name="status"]').checked = 'false';
 }
 
 function LoopOverMyLibrary(newBook) {

@@ -13,7 +13,12 @@
 /* custom properties */
 :root {
     --PrimaryColor: rgb(24, 85, 69);
-    --offWhiteColor: rgb(229, 237, 241);
+    --offWhiteColor: rgb(240, 240, 240);
+    --audio: #c98cc1;
+    --paper: #8c90c9;
+    --on-hold: #eca95d;
+    --in-progress: #5dc3ec;
+    --complete: #8cc98c;
 }
 
 /* page layout */
@@ -32,7 +37,7 @@ header {
 
 /* ---------main content--------- */
 .main {
-    background-color: var(--PrimaryColor);
+    background-color: var(--offWhiteColor);
 }
 .add-book {
     text-align: center;
@@ -53,7 +58,6 @@ header {
     gap: 10px;
     grid-template-columns: repeat(auto-fill, 200px);
     grid-template-rows: repeat(4, 200px);
-    background-color: yellowgreen;
 }
 /* CARDS */
 .card {
@@ -64,7 +68,7 @@ header {
     border-radius: 5px;
 }
 .cover {
-    background-color: rgb(240, 240, 240);
+    background-color: var(--offWhiteColor);
     padding: 1px;
     display: grid;
     gap: 1px;
@@ -95,7 +99,7 @@ header {
     display: grid;
     gap: 1px;
     padding: 1px;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--offWhiteColor);
     grid-template-rows: 1fr 2fr;
     border-radius: 5px;
 }
