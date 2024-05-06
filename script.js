@@ -47,7 +47,11 @@ dialog.addEventListener('click', (event) => {
       dialog.close();
     }
 });
-
+//cancel dialog-server communication
+submitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+});
 
 
 // ------------ FUNCTIONS ------------
