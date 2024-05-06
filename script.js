@@ -50,7 +50,8 @@ dialog.addEventListener('click', (event) => {
       dialog.close();
     }
 });
-//cancel dialog-server communication
+//cancel dialog-server communication and then
+//execute main functions
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     addBookToLibrary();
@@ -81,12 +82,11 @@ function bookObjectToCardData() {
     //loop over the array of books
     myLibrary.forEach((book, index) => {
 
-        //create a card for each book
-        //LARGEST (top section of the card)
-        //create card section
+        //1. create a card for each book
+        //----element creation from largest to smallest (top section)----
         let card = document.createElement('div');
         card.setAttribute(`class`, `card`);
-        //create cover section
+        //div to hold title & author
         let coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
         //create div to hold the title
@@ -94,16 +94,14 @@ function bookObjectToCardData() {
         titleDiv.setAttribute('class', `title`);    
         //title
         let titleH2 = document.createElement('h2');
-        // titleH2.textContent = newBook.title;
         //div to hold the author
         let authorDiv = document.createElement('div');
         authorDiv.setAttribute('class', 'author');
         //author
         let authorH4 = document.createElement('h4');
-        // authorH4.textContent = newBook.author;
 
-        //LARGEST (bottom section of the card)
-        //div to hold info (length and status)
+        //----element creation from largest to smallest(bottom section)----
+        //div to hold length and status
         let infoDiv = document.createElement('div');
         infoDiv.setAttribute('class', 'info');
         //div to hold length
@@ -111,21 +109,19 @@ function bookObjectToCardData() {
         lengthDiv.setAttribute('class', 'length');
         //length
         let lengthP = document.createElement('p');
-        // lengthP.textContent = newBook.length;
         //div to hold status
         let statusDiv = document.createElement('div');
         statusDiv.setAttribute('class', 'status');
         //status
         let statusP = document.createElement('p');
-        // statusP.textContent = newBook.readStatus;
 
-        //populate appropriate elements with data
+        //2. populate appropriate elements with data
         titleH2.textContent = book.title;
         authorH4.textContent = book.author;
         lengthP.textContent = book.length;
         statusP.textContent = book.readStatus;
 
-        //3. prepend from smallest to largest, bottom to top
+        //3. prepend elements from smallest to largest, bottom to top
         statusDiv.appendChild(statusP);
         lengthDiv.appendChild(lengthP);
         infoDiv.appendChild(lengthDiv);
