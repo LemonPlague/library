@@ -32,7 +32,7 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     
     //3. loop through array to put object data into cards
-    bookObjectToCardData(newBook);
+    bookObjectToCardData();
 }
 
 
@@ -68,67 +68,68 @@ function getValuesFromDialog() {
     return new Book(title, author, length, readStatus);
 }
 
-function bookObjectToCardData(newBook) {
+function bookObjectToCardData() {
     //get card-space div
     const cardSpace = document.querySelector('.card-space');
+    //loop over the array of books
+    myLibrary.forEach((book, index) => {
 
-    //1. begin creating from largest to smallest. 
+        //create a card for each book
+        //LARGEST (top section of the card)
+        //create card section
+        let card = document.createElement('div');
+        card.setAttribute(`class`, `card`);
+        //create cover section
+        let coverDiv = document.createElement('div');
+        coverDiv.setAttribute(`class`, `cover`);
+        //create div to hold the title
+        let titleDiv = document.createElement('div');
+        titleDiv.setAttribute('class', `title`);    
+        //title
+        let titleH2 = document.createElement('h2');
+        // titleH2.textContent = newBook.title;
+        //div to hold the author
+        let authorDiv = document.createElement('div');
+        authorDiv.setAttribute('class', 'author');
+        //author
+        let authorH4 = document.createElement('h4');
+        // authorH4.textContent = newBook.author;
 
-    //LARGEST (top section of the card)
-    //create card section
-    let card = document.createElement('div');
-    card.setAttribute(`class`, `card`);
-    //create cover section
-    let coverDiv = document.createElement('div');
-    coverDiv.setAttribute(`class`, `cover`);
-    //create div to hold the title
-    let titleDiv = document.createElement('div');
-    titleDiv.setAttribute('class', `title`);    
-    //title
-    let titleH2 = document.createElement('h2');
-    titleH2.textContent = newBook.title;
-    //div to hold the author
-    let authorDiv = document.createElement('div');
-    authorDiv.setAttribute('class', 'author');
-    //author
-    let authorH4 = document.createElement('h4');
-    authorH4.textContent = newBook.author;
+        //LARGEST (bottom section of the card)
+        //div to hold info (length and status)
+        let infoDiv = document.createElement('div');
+        infoDiv.setAttribute('class', 'info');
+        //div to hold length
+        let lengthDiv = document.createElement('div');
+        lengthDiv.setAttribute('class', 'length');
+        //length
+        let lengthP = document.createElement('p');
+        // lengthP.textContent = newBook.length;
+        //div to hold status
+        let statusDiv = document.createElement('div');
+        statusDiv.setAttribute('class', 'status');
+        //status
+        let statusP = document.createElement('p');
+        // statusP.textContent = newBook.readStatus;
 
-    //LARGEST (bottom section of the card)
-    //div to hold info (length and status)
-    let infoDiv = document.createElement('div');
-    infoDiv.setAttribute('class', 'info');
-    //div to hold length
-    let lengthDiv = document.createElement('div');
-    lengthDiv.setAttribute('class', 'length');
-    //length
-    let lengthP = document.createElement('p');
-    lengthP.textContent = newBook.length;
-    //div to hold status
-    let statusDiv = document.createElement('div');
-    statusDiv.setAttribute('class', 'status');
-    //status
-    let statusP = document.createElement('p');
-    statusP.textContent = newBook.readStatus;
+        //populate appropriate elements with data
+        titleH2.textContent = book.title;
+        authorH4.textContent = book.author;
+        lengthP.textContent = book.length;
+        statusP.textContent = book.readStatus;
 
-    
-    //2. prepend from smallest to largest, bottom to top
-    statusDiv.appendChild(statusP);
-    lengthDiv.appendChild(lengthP);
-    infoDiv.appendChild(lengthDiv);
-    infoDiv.appendChild(statusDiv);
-    authorDiv.appendChild(authorH4);
-    titleDiv.appendChild(titleH2);
-    coverDiv.appendChild(titleDiv);
-    coverDiv.appendChild(authorDiv);
-    card.appendChild(coverDiv);
-    card.appendChild(infoDiv);
-    cardSpace.appendChild(card);
+        //3. prepend from smallest to largest, bottom to top
+        statusDiv.appendChild(statusP);
+        lengthDiv.appendChild(lengthP);
+        infoDiv.appendChild(lengthDiv);
+        infoDiv.appendChild(statusDiv);
+        authorDiv.appendChild(authorH4);
+        titleDiv.appendChild(titleH2);
+        coverDiv.appendChild(titleDiv);
+        coverDiv.appendChild(authorDiv);
+        card.appendChild(coverDiv);
+        card.appendChild(infoDiv);
+        cardSpace.appendChild(card);
 
-
-    myLibrary.forEach(loopOverObject);
-}
-
-function loopOverObject() {
-    
+    });
 }
