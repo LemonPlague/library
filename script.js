@@ -153,11 +153,11 @@ function LoopOverMyLibrary(newBook) {
         if (myLibrary.length == 0) {
             return 0;
         } 
-        //if the title of newBook == title of current iterated book, break
-        else if (newBook.title == myLibrary[i].title) {
+        //if the title of newBook == title of current iterated book & exit loop
+        else if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
             console.log(`newBook Title = ${newBook.title}. Book title at index ${myLibrary[i]} is ${myLibrary[i].title}`);
             match = 1;
-            continue;
+            return match;
         //if the title of newBook != title of current iterated book and this is not the last book, 
         //go to next loop
         } else if (newBook.title != myLibrary[i].title && i != myLibrary.length -1) {
