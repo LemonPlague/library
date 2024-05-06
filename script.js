@@ -61,7 +61,7 @@ dialog.addEventListener('click', (event) => {
 //cancel dialog-server communication and then
 //execute main functions
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     addBookToLibrary();
 });
 
@@ -142,7 +142,7 @@ function ClearDialog() {
     document.querySelector('#title').value = '';
     document.querySelector('#author').value = '';
     document.querySelector('#length').value = '';
-    document.querySelector('#status-radio').checked = '';
+    document.querySelector('input[name="status"]:checked').value = '';
 }
 
 function LoopOverMyLibrary(newBook) {
