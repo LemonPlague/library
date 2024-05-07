@@ -1,6 +1,6 @@
 // --------TODO--------
-// 1. add a [CHANGE] button to the readStatus section on each card
-// to populate radio buttons, and ensure color changes happen as status are changed
+// 1. get index of the card in which updateStatus button was pushed, 
+// and ensure color changes happen as status are changed
 
 // 2. due to HTML issues, the form controls must be implimented in javascript
 
