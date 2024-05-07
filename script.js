@@ -53,7 +53,7 @@ function addNewBook() {
 // open the dialog when the button is clicked
 addNewBookButton.addEventListener('click', () => {
     dialog.showModal();
-})
+});
 // close the dialog when clicking outside of it
 dialog.addEventListener('click', (event) => {
     if(event.target === dialog){
@@ -66,7 +66,17 @@ submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     addNewBook();
 });
-
+//readStatus update button function
+statusButton.addEventListener('click', () => {
+    statusDiv.innerHTML = '';
+    const radio1 = document.createElement('input');
+    const inputAttributes = {
+        name: 'newStatus',
+        type: 'radio',        
+    }
+    Object.assign(radio1, inputAttributes);
+    statusDiv.appendChild(radio1);
+});
 
 // ------------ FUNCTIONS ------------
 // Book constructor
@@ -111,39 +121,39 @@ function myLibraryToCards() {
     myLibrary.forEach((book, index) => {
         //1. create a card for each book in the library
         //----element creation from largest to smallest (top section)----
-        let card = document.createElement('div');
+        const card = document.createElement('div');
         card.setAttribute(`class`, `card`);
         card.id = `card${index}`;
         //div to hold title & author
-        let coverDiv = document.createElement('div');
+        const coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
         //create div to hold the title
-        let titleDiv = document.createElement('div');
+        const titleDiv = document.createElement('div');
         titleDiv.setAttribute('class', `title`);    
         //title
-        let titleH2 = document.createElement('h2');
+        const titleH2 = document.createElement('h2');
         //div to hold the author
-        let authorDiv = document.createElement('div');
+        const authorDiv = document.createElement('div');
         authorDiv.setAttribute('class', 'author');
         //author
-        let authorH4 = document.createElement('h4');
+        const authorH4 = document.createElement('h4');
 
         //----element creation from largest to smallest(bottom section)----
         //div to hold length and status
-        let infoDiv = document.createElement('div');
+        const infoDiv = document.createElement('div');
         infoDiv.setAttribute('class', 'info');
         //div to hold length
-        let lengthDiv = document.createElement('div');
+        const lengthDiv = document.createElement('div');
         lengthDiv.setAttribute('class', 'length');
         //length
-        let lengthP = document.createElement('p');
+        const lengthP = document.createElement('p');
         //div to hold status
-        let statusDiv = document.createElement('div');
+        const statusDiv = document.createElement('div');
         statusDiv.setAttribute('class', 'status');
         //status
-        let statusP = document.createElement('p');
+        const statusP = document.createElement('p');
         //status update button
-        let statusButton = document.createElement('button');
+        const statusButton = document.createElement('button');
         statusButton.setAttribute('class', 'update-button');
         statusButton.setAttribute('type', 'button');
         statusButton.textContent = "Update";
