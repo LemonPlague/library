@@ -163,7 +163,7 @@ function myLibraryToCards() {
         cardSpace.appendChild(card);
         
         //4. pimp out the aesthetics
-        // --length--
+        // --book length--
         const lengthType = lengthP.textContent.split(' ');
         if (lengthType[1] == 'hours') {
             lengthDiv.style.backgroundColor = '#c98cc1';
@@ -171,7 +171,7 @@ function myLibraryToCards() {
             lengthDiv.style.backgroundColor = '#8c90c9';
         }
 
-        // --status--
+        // --read status--
         if (statusP.textContent == 'on-hold') {
             statusDiv.style.backgroundColor = '#eca95d';
         } else if (statusP.textContent == 'in-progress') {
