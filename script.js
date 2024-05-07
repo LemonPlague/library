@@ -71,14 +71,9 @@ submitButton.addEventListener("click", (e) => {
 });
 //readStatus update button function
 statusButton.addEventListener('click', () => {
+    //clear status div
     statusDiv.innerHTML = '';
-    const radio1 = document.createElement('input');
-    const inputAttributes = {
-        name: 'newStatus',
-        type: 'radio',        
-    }
-    Object.assign(radio1, inputAttributes);
-    statusDiv.appendChild(radio1);
+    createRadioButtons();
 });
 
 
@@ -200,4 +195,45 @@ function myLibraryToCards() {
             statusDiv.style.backgroundColor = '#8cc98c';
         }
     })    
+}
+
+function createRadioButtons() {
+    //create common attributes for the following inputs
+    const inputAttributes = {
+        name: 'newStatus',
+        type: 'radio',        
+    }
+    //---create 3 radio buttons---
+    //1. on hold
+    const holdRadio = document.createElement('input');    
+    Object.assign(holdRadio, inputAttributes);
+    holdRadio.setAttribute('value', 'on hold');
+    holdRadio.setAttribute('id', 'on-hold');
+    const holdLabel = document.createElement('label');
+    holdLabel.setAttribute('for', 'on-hold');
+    holdLabel.textContent = "on hold";
+    //2. in progress
+    const progRadio = document.createElement('input');
+    Object.assign(progRadio, inputAttributes);
+    progRadio.setAttribute('value', 'in progress');
+    progRadio.setAttribute('id', 'in-progress');
+    const progLabel = document.createElement('label');
+    progLabel.setAttribute('for', 'in-progress');
+    progLabel.textContent = "in progress";
+    //3. complete
+    const completeRadio = document.createElement('input');
+    Object.assign(completeRadio, inputAttributes);
+    completeRadio.setAttribute('value', 'complete');
+    completeRadio.setAttribute('id', 'complete');
+    const completeLabel = document.createElement('label');
+    completeLabel.setAttribute('for', 'complete');
+    completeLabel.textContent = "complete";
+
+    //append the radios
+    statusDiv.appendChild(holdRadio);
+    statusDiv.appendChild(holdLabel);
+    statusDiv.appendChild(progRadio);
+    statusDiv.appendChild(progLabel);
+    statusDiv.appendChild(completeRadio);
+    statusDiv.appendChild(completeLabel);
 }
