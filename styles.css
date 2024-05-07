@@ -119,9 +119,13 @@ header {
     padding: 1px;
     display: grid;
     align-items: center;
+    grid-template-columns: 2 1fr;
 }
 .status p {
     text-align: center;
+}
+.status button {
+    background-color: white;
 }
 
 /* --DIALOG-- */

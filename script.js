@@ -142,6 +142,11 @@ function myLibraryToCards() {
         statusDiv.setAttribute('class', 'status');
         //status
         let statusP = document.createElement('p');
+        //status update button
+        let statusButton = document.createElement('button');
+        statusButton.setAttribute('class', 'update-button');
+        statusButton.setAttribute('type', 'button');
+        statusButton.textContent = "Update";
 
         //2. populate appropriate elements with data
         titleH2.textContent = book.title;
@@ -151,6 +156,7 @@ function myLibraryToCards() {
 
         //3. prepend elements from smallest to largest, bottom to top
         statusDiv.appendChild(statusP);
+        statusDiv.appendChild(statusButton);
         lengthDiv.appendChild(lengthP);
         infoDiv.appendChild(lengthDiv);
         infoDiv.appendChild(statusDiv);
