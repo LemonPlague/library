@@ -17,8 +17,9 @@ const myLibrary = [];
 // ------------ MAIN FUNCTION ------------
 //----when the submit button is pushed----
 
-function addBookToLibrary() {
-    //1. get values from the dialog
+function addNewBook() {
+
+    //1. get values from the dialog stored into newBook
     const newBook = getValuesFromDialog();
 
     //2. clear the dialog
@@ -55,7 +56,7 @@ dialog.addEventListener('click', (event) => {
 //execute main functions
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    addBookToLibrary();
+    addNewBook();
 });
 
 
@@ -156,16 +157,32 @@ function ClearDialog() {
     document.querySelector('input[name="status"]').checked = 'false';
 }
 
-function checkForMatch(newBook) {  
-    myLibrary.forEach((book, index) => {
-        if (newBook.title === book.title && newBook.author === book.author) {
-            return true; // breaks out of the function without continuing to loop
-        }
-    });
-  
-    indexID++; //there was no match, new entry so increase the indexID
-    return false; // no match found, or myLibrary length was === 0
+
+function checkForMatch(newBook) {
+    if (myLibrary.length === 0) return false;
+    
+    for (let i = 0; i <= myLibrary.length; i++) {
+      if (newBook.title === myLibrary[i].title && newBook.author === myLibrary[i].author) {
+        console.log(`${newBook.title} matches a title already on your list at index 
+        ${myLibrary[i]} of your library.`)
+        return true; //found a match
+      }
+    }
+    
+    return false;
   }
+
+// LEGACY CODE WHICH IS NOW SEEN ABOVE AS [checkForMatch]
+// function checkForMatch(newBook) {  
+//     myLibrary.forEach((book, index) => {
+//         if (newBook.title === book.title && newBook.author === book.author) {
+//             return true; // breaks out of the function without continuing to loop
+//         }
+//     });
+  
+//     indexID++; //there was no match, new entry so increase the indexID
+//     return false; // no match found, or myLibrary length was === 0
+//   }
 
 
 
