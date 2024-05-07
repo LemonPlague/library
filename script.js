@@ -18,9 +18,6 @@ const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
 const cardSpace = document.querySelector('.card-space');
-//necessary element creations for global usage
-const statusButton = document.createElement('button');
-const statusDiv = document.createElement('div');
 // Array to hold multiple cards
 const myLibrary = [];
 
@@ -68,12 +65,6 @@ dialog.addEventListener('click', (event) => {
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     addNewBook();
-});
-//readStatus update button function
-statusButton.addEventListener('click', () => {
-    //clear status div
-    statusDiv.innerHTML = '';
-    createRadioButtons();
 });
 
 
@@ -147,15 +138,22 @@ function myLibraryToCards() {
         //length
         const lengthP = document.createElement('p');
         //div to hold status
-        //(this div is created in initial variables)
+        const statusDiv = document.createElement('div');
         statusDiv.setAttribute('class', 'status');
         //status
         const statusP = document.createElement('p');
         //status update button
-        //(this button is created in initial variables)
+        const statusButton = document.createElement('button');
         statusButton.setAttribute('class', 'update-button');
         statusButton.setAttribute('type', 'button');
+        statusButton.setAttribute('id', `button${index}`);
         statusButton.textContent = "Update";
+        //readStatus update function
+        statusButton.addEventListener('click', () => {
+            //clear status div
+            statusDiv.innerHTML = '';
+            createRadioButtons(statusDiv);
+        })
 
         //2. populate appropriate elements with data
         titleH2.textContent = book.title;
@@ -197,7 +195,7 @@ function myLibraryToCards() {
     })    
 }
 
-function createRadioButtons() {
+function createRadioButtons(statusDiv) {
     //create common attributes for the following inputs
     const inputAttributes = {
         name: 'newStatus',
