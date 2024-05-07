@@ -100,15 +100,13 @@ function checkForMatch(newBook) {
 function myLibraryToCards() {   
     //first remove all cards
     cardSpace.innerHTML = '';
-    //track indexID to assign cards an ID
-    let indexID = 0;
 
     myLibrary.forEach((book, index) => {
         //1. create a card for each book in the library
         //----element creation from largest to smallest (top section)----
         let card = document.createElement('div');
         card.setAttribute(`class`, `card`);
-        card.id = `card${indexID}`;
+        card.id = `card${index}`;
         //div to hold title & author
         let coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
@@ -174,8 +172,6 @@ function myLibraryToCards() {
         } else {
             statusDiv.style.backgroundColor = '#8cc98c';
         }
-
-        indexID++;
     })    
 }
 
