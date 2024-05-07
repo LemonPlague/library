@@ -152,7 +152,11 @@ function myLibraryToCards() {
         statusButton.addEventListener('click', () => {
             //clear status div
             statusDiv.innerHTML = '';
-            createRadioButtons(statusDiv);
+            const newStatus = newStatusRadios(statusDiv);
+            if (newStatus) {
+                myLibrary[index].readStatus = newStatus;
+                myLibraryToCards();
+            }
         })
 
         //2. populate appropriate elements with data
@@ -195,7 +199,7 @@ function myLibraryToCards() {
     })    
 }
 
-function createRadioButtons(statusDiv) {
+function newStatusRadios(statusDiv) {
     //create common attributes for the following inputs
     const inputAttributes = {
         name: 'newStatus',
@@ -210,6 +214,9 @@ function createRadioButtons(statusDiv) {
     const holdLabel = document.createElement('label');
     holdLabel.setAttribute('for', 'on-hold');
     holdLabel.textContent = "on hold";
+    holdRadio.addEventListener('click', () => {
+        return holdRadio.value;
+    })
     //2. in progress
     const progRadio = document.createElement('input');
     Object.assign(progRadio, inputAttributes);
@@ -218,6 +225,9 @@ function createRadioButtons(statusDiv) {
     const progLabel = document.createElement('label');
     progLabel.setAttribute('for', 'in-progress');
     progLabel.textContent = "in progress";
+    progRadio.addEventListener('click', () => {
+        return progRadio.value;
+    })
     //3. complete
     const completeRadio = document.createElement('input');
     Object.assign(completeRadio, inputAttributes);
@@ -226,6 +236,9 @@ function createRadioButtons(statusDiv) {
     const completeLabel = document.createElement('label');
     completeLabel.setAttribute('for', 'complete');
     completeLabel.textContent = "complete";
+    completeRadio.addEventListener('click', () => {
+        return completeRadio.value;
+    })
 
     //append the radios
     statusDiv.appendChild(holdRadio);
