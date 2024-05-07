@@ -31,16 +31,14 @@ function addNewBook() {
     //1. get values from the dialog stored into newBook
     const newBook = getValuesFromDialog();
 
-    //2. clear the dialog
+    //2. clear & close dialog
     ClearDialog();
-    //2.1 close dialog
     dialog.close();    
     
     //3. check if new book is already in library
     const bookMatch = checkForMatch(newBook);
 
-    //if the same title is not present in library, add a card
-    //then push that book into the library.
+    //4. if the title does not already exist, push it to myLibrary and rebuild cards
     if (!bookMatch) {        
         myLibrary.push(newBook);
         myLibraryToCards();
