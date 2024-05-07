@@ -66,17 +66,7 @@ submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     addNewBook();
 });
-//readStatus update button function
-statusButton.addEventListener('click', () => {
-    statusDiv.innerHTML = '';
-    const radio1 = document.createElement('input');
-    const inputAttributes = {
-        name: 'newStatus',
-        type: 'radio',        
-    }
-    Object.assign(radio1, inputAttributes);
-    statusDiv.appendChild(radio1);
-});
+
 
 // ------------ FUNCTIONS ------------
 // Book constructor
@@ -188,12 +178,25 @@ function myLibraryToCards() {
         }
 
         // --read status--
-        if (statusP.textContent == 'on-hold') {
+        if (statusP.textContent == 'on hold') {
             statusDiv.style.backgroundColor = '#eca95d';
-        } else if (statusP.textContent == 'in-progress') {
+        } else if (statusP.textContent == 'in progress') {
             statusDiv.style.backgroundColor = '#5dc3ec';
         } else {
             statusDiv.style.backgroundColor = '#8cc98c';
         }
     })    
 }
+
+
+//readStatus update button function
+statusButton.addEventListener('click', () => {
+    statusDiv.innerHTML = '';
+    const radio1 = document.createElement('input');
+    const inputAttributes = {
+        name: 'newStatus',
+        type: 'radio',        
+    }
+    Object.assign(radio1, inputAttributes);
+    statusDiv.appendChild(radio1);
+});
