@@ -27,7 +27,7 @@ function addBookToLibrary() {
     dialog.close();    
     
     //3. check if new book is already in library
-    const bookMatch = LoopOverMyLibrary(newBook);
+    const bookMatch = checkForMatch(newBook);
 
     //if the same title is not present in library, add a card
     //then push that book into the library.
@@ -156,33 +156,45 @@ function ClearDialog() {
     document.querySelector('input[name="status"]').checked = 'false';
 }
 
-function LoopOverMyLibrary(newBook) {
+function checkForMatch(newBook) {  
+    myLibrary.forEach((book, index) => {
+        if (newBook.title === book.title && newBook.author === book.author) {
+            return true; // breaks out of the function without continuing to loop
+        }
+    });
+  
+    indexID++; //there was no match, new entry so increase the indexID
+    return false; // no match found, or myLibrary length was === 0
+  }
 
-    if (myLibrary.length === 0) {
-        return 0;
-    }
 
-    let foundMatch = false;
 
-    for (let i = 0; i <= myLibrary.length; i++) {
+// LEGACY CODE WHICH IS NOW SEEN ABOVE AS [checkForMatch]
+// function LoopOverMyLibrary(newBook) {
+
+//     if (myLibrary.length === 0) return false;
+
+//     let foundMatch = false;
+
+//     for (let i = 0; i <= myLibrary.length; i++) {
 
         
-        //if the title of newBook == title of current iterated book & exit loop
-        if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
-            console.log(`newBook Title = ${newBook.title}. Book title at index ${myLibrary[i]} is ${myLibrary[i].title}`);
-            foundMatch = true;
-            return foundMatch;
-        //if the title of newBook != title of current iterated book and this is not the last book, 
-        //go to next loop
-        } else if (newBook.title != myLibrary[i].title && i != myLibrary.length -1) {
-            console.log(`newBook Title = ${newBook.title}. Book title at ${myLibrary[i]} is ${myLibrary[i].title}`);
-            continue;
-        //if the title of newBook != title of current iterated book and this IS the last book, 
-        //execute the code below
-        } else {
-            indexID = i + 1;
-            return foundMatch;
-        }
-    }
-}
+//         //if the title of newBook == title of current iterated book & exit loop
+//         if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
+//             console.log(`newBook Title = ${newBook.title}. Book title at index ${myLibrary[i]} is ${myLibrary[i].title}`);
+//             foundMatch = true;
+//             return foundMatch;
+//         //if the title of newBook != title of current iterated book and this is not the last book, 
+//         //go to next loop
+//         } else if (newBook.title != myLibrary[i].title && i != myLibrary.length -1) {
+//             console.log(`newBook Title = ${newBook.title}. Book title at ${myLibrary[i]} is ${myLibrary[i].title}`);
+//             continue;
+//         //if the title of newBook != title of current iterated book and this IS the last book, 
+//         //execute the code below
+//         } else {
+//             indexID = i + 1;
+//             return foundMatch;
+//         }
+//     }
+// }
 
