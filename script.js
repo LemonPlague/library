@@ -18,6 +18,9 @@ const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
 const cardSpace = document.querySelector('.card-space');
+//necessary element creations for global usage
+const statusButton = document.createElement('button');
+const statusDiv = document.createElement('div');
 // Array to hold multiple cards
 const myLibrary = [];
 
@@ -65,6 +68,17 @@ dialog.addEventListener('click', (event) => {
 submitButton.addEventListener("click", (e) => {
     e.preventDefault();
     addNewBook();
+});
+//readStatus update button function
+statusButton.addEventListener('click', () => {
+    statusDiv.innerHTML = '';
+    const radio1 = document.createElement('input');
+    const inputAttributes = {
+        name: 'newStatus',
+        type: 'radio',        
+    }
+    Object.assign(radio1, inputAttributes);
+    statusDiv.appendChild(radio1);
 });
 
 
@@ -138,12 +152,12 @@ function myLibraryToCards() {
         //length
         const lengthP = document.createElement('p');
         //div to hold status
-        const statusDiv = document.createElement('div');
+        //(this div is created in initial variables)
         statusDiv.setAttribute('class', 'status');
         //status
         const statusP = document.createElement('p');
         //status update button
-        const statusButton = document.createElement('button');
+        //(this button is created in initial variables)
         statusButton.setAttribute('class', 'update-button');
         statusButton.setAttribute('type', 'button');
         statusButton.textContent = "Update";
@@ -187,16 +201,3 @@ function myLibraryToCards() {
         }
     })    
 }
-
-
-//readStatus update button function
-statusButton.addEventListener('click', () => {
-    statusDiv.innerHTML = '';
-    const radio1 = document.createElement('input');
-    const inputAttributes = {
-        name: 'newStatus',
-        type: 'radio',        
-    }
-    Object.assign(radio1, inputAttributes);
-    statusDiv.appendChild(radio1);
-});
