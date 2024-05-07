@@ -35,7 +35,8 @@ function addNewBook() {
         myLibrary.push(newBook);
         myLibraryToCards();
     } else {
-        console.log(`book has already been entered?!`);
+        console.log(`The title you entered already exists
+        in your library`);
     }  
 }
 
@@ -88,8 +89,6 @@ function checkForMatch(newBook) {
     
     for (let i = 0; i < myLibrary.length; i++) {
       if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
-        console.log(`${newBook.title} matches a title already on your list at index 
-        ${myLibrary[i]} of your library.`);
         return true; //found a match
       }
     }    
