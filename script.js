@@ -31,7 +31,7 @@ function addBookToLibrary() {
 
     //if the same title is not present in library, add a card
     //then push that book into the library.
-    if (bookMatch == 0) {
+    if (!bookMatch) {
         bookObjectToCardData(newBook);
         myLibrary.push(newBook);
     } else {
@@ -157,18 +157,21 @@ function ClearDialog() {
 }
 
 function LoopOverMyLibrary(newBook) {
-    let match = 0;
+
+    if (myLibrary.length === 0) {
+        return 0;
+    }
+
+    let foundMatch = false;
 
     for (let i = 0; i <= myLibrary.length; i++) {
 
-        if (myLibrary.length == 0) {
-            return 0;
-        } 
+        
         //if the title of newBook == title of current iterated book & exit loop
-        else if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
+        if (newBook.title == myLibrary[i].title && newBook.author == myLibrary[i].author) {
             console.log(`newBook Title = ${newBook.title}. Book title at index ${myLibrary[i]} is ${myLibrary[i].title}`);
-            match = 1;
-            return match;
+            foundMatch = true;
+            return foundMatch;
         //if the title of newBook != title of current iterated book and this is not the last book, 
         //go to next loop
         } else if (newBook.title != myLibrary[i].title && i != myLibrary.length -1) {
@@ -178,7 +181,7 @@ function LoopOverMyLibrary(newBook) {
         //execute the code below
         } else {
             indexID = i + 1;
-            return match;
+            return foundMatch;
         }
     }
 }
