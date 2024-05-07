@@ -1,6 +1,16 @@
 // --------TODO--------
+// 1. add a [CHANGE] button to the readStatus section on each card
+// to populate radio buttons, and ensure color changes happen as status are changed
 
+// 2. due to HTML issues, the form controls must be implimented in javascript
 
+// 3. add a delete button on each book that triggers a warning confirmation
+
+// 4. add a date to the forms
+
+// 5. implement a save feature
+
+// 6. add another readStatus: "watchList"
 
 
 // ------------INITIAL VARIABLES------------
