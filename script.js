@@ -60,7 +60,7 @@ dialog.addEventListener('click', (event) => {
 //cancel dialog-server communication and then
 //execute main functions
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault(); //this also prevents the HTML regex pattern in the dialog
     addNewBook();
 });
 
@@ -193,7 +193,6 @@ function myLibraryToCards() {
 }
 
 function updateReadStatus(statusDiv, index) {
-
     //create common attributes for the following inputs
     const inputAttributes = {
         name: 'newStatus',
