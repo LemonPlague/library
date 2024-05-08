@@ -1,7 +1,4 @@
 // --------TODO--------
-// 1. get index of the card in which updateStatus button was pushed, 
-// and ensure color changes happen as status are changed
-
 // 2. due to HTML issues, the form controls must be implimented in javascript
 
 // 3. add a delete button on each book that triggers a warning confirmation
