@@ -152,14 +152,8 @@ function myLibraryToCards() {
         statusButton.addEventListener('click', () => {
             //clear status div
             statusDiv.innerHTML = '';
-            const newStatus = newStatusRadios(statusDiv, index);
-            if (newStatus) {
-                myLibrary[index].readStatus = newStatus;
-                myLibraryToCards();
-            }
-        })
-
-        
+            newStatusRadios(statusDiv, index);
+        }, false);      
 
         //2. populate appropriate elements with data
         titleH2.textContent = book.title;
@@ -202,7 +196,7 @@ function myLibraryToCards() {
 }
 
 function newStatusRadios(statusDiv, index) {
-    
+
     let newStatusSelection = null;
 
     //create common attributes for the following inputs
@@ -220,9 +214,11 @@ function newStatusRadios(statusDiv, index) {
     holdLabel.setAttribute(`for`, `on-hold-${index}`);
     holdLabel.textContent = "on hold";
     holdRadio.addEventListener('click', () => {
-        // return holdRadio.value;
-        newStatusSelection = holdRadio.value;
-    })
+        //update readStatus of object in library
+        myLibrary[index].readStatus = holdRadio.value;
+        //rebuild the cards
+        myLibraryToCards();
+    });
     //2. in progress
     const progRadio = document.createElement('input');
     Object.assign(progRadio, inputAttributes);
@@ -232,9 +228,11 @@ function newStatusRadios(statusDiv, index) {
     progLabel.setAttribute(`for`, `in-progress-${index}`);
     progLabel.textContent = "in progress";
     progRadio.addEventListener('click', () => {
-        // return progRadio.value;
-        newStatusSelection = progRadio.value;
-    })
+        //update readStatus of object in library
+        myLibrary[index].readStatus = progRadio.value;
+        //rebuild the cards
+        myLibraryToCards();
+    });
     //3. complete
     const completeRadio = document.createElement('input');
     Object.assign(completeRadio, inputAttributes);
@@ -244,9 +242,11 @@ function newStatusRadios(statusDiv, index) {
     completeLabel.setAttribute(`for`, `complete-${index}`);
     completeLabel.textContent = "complete";
     completeRadio.addEventListener('click', () => {
-        // return completeRadio.value;
-        newStatusSelection = completeRadio.value;
-    })
+        //update readStatus of object in library
+        myLibrary[index].readStatus = completeRadio.value;
+        //rebuild the cards
+        myLibraryToCards();
+    });
 
     //append the radios
     statusDiv.appendChild(holdRadio);
@@ -255,16 +255,4 @@ function newStatusRadios(statusDiv, index) {
     statusDiv.appendChild(progLabel);
     statusDiv.appendChild(completeRadio);
     statusDiv.appendChild(completeLabel);
-
-    //create another button to close the radios and return selected value
-    //create a button to return to readStatus
-    //from readStatus update function
-    const returnButton = document.createElement('button');
-    returnButton.setAttribute('class', 'return-button');
-    returnButton.setAttribute('type', 'button');
-    statusDiv.appendChild(returnButton);
-    returnButton.addEventListener('click', () => {
-        if (newStatusSelection) return newStatusSelection;
-    }, false);
-        
 }
