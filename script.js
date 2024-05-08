@@ -152,7 +152,7 @@ function myLibraryToCards() {
         statusButton.addEventListener('click', () => {
             //clear status div
             statusDiv.innerHTML = '';
-            newStatusRadios(statusDiv, index);
+            updateReadStatus(statusDiv, index);
         }, false);      
 
         //2. populate appropriate elements with data
@@ -195,9 +195,7 @@ function myLibraryToCards() {
     })    
 }
 
-function newStatusRadios(statusDiv, index) {
-
-    let newStatusSelection = null;
+function updateReadStatus(statusDiv, index) {
 
     //create common attributes for the following inputs
     const inputAttributes = {
