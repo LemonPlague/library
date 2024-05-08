@@ -128,7 +128,7 @@ header {
     text-align: center;
     font-size: .8rem;
 }
-.status button {
+.update-button {
     background-color: white;
     font-size: .8rem;
     padding: 2px;
@@ -136,6 +136,24 @@ header {
     box-shadow: 0 0 3px 3px rgba(238, 221, 255, 0.7);
     color: white;
     background-color: rgb(130, 0, 236);
+}
+/* status div radio buttons (populated by javascript) */
+.status label {
+    font-size: .8rem;
+    justify-self: start;
+}
+.status input {
+    font-size: .8rem;
+    justify-self: end;
+}
+.return-button {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    border: 1px solid black;
+    margin-left: 15px;
+    background-color: yellowgreen;
 }
 
 /* --DIALOG-- */

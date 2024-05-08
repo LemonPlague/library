@@ -159,6 +159,8 @@ function myLibraryToCards() {
             }
         })
 
+        
+
         //2. populate appropriate elements with data
         titleH2.textContent = book.title;
         authorH4.textContent = book.author;
@@ -200,8 +202,9 @@ function myLibraryToCards() {
 }
 
 function newStatusRadios(statusDiv, index) {
-
+    
     let newStatusSelection = null;
+
     //create common attributes for the following inputs
     const inputAttributes = {
         name: 'newStatus',
@@ -217,8 +220,8 @@ function newStatusRadios(statusDiv, index) {
     holdLabel.setAttribute(`for`, `on-hold-${index}`);
     holdLabel.textContent = "on hold";
     holdRadio.addEventListener('click', () => {
-        return holdRadio.value;
-        // newStatusSelection = holdRadio.value;
+        // return holdRadio.value;
+        newStatusSelection = holdRadio.value;
     })
     //2. in progress
     const progRadio = document.createElement('input');
@@ -229,7 +232,8 @@ function newStatusRadios(statusDiv, index) {
     progLabel.setAttribute(`for`, `in-progress-${index}`);
     progLabel.textContent = "in progress";
     progRadio.addEventListener('click', () => {
-        return progRadio.value;
+        // return progRadio.value;
+        newStatusSelection = progRadio.value;
     })
     //3. complete
     const completeRadio = document.createElement('input');
@@ -240,7 +244,8 @@ function newStatusRadios(statusDiv, index) {
     completeLabel.setAttribute(`for`, `complete-${index}`);
     completeLabel.textContent = "complete";
     completeRadio.addEventListener('click', () => {
-        return completeRadio.value;
+        // return completeRadio.value;
+        newStatusSelection = completeRadio.value;
     })
 
     //append the radios
@@ -250,7 +255,16 @@ function newStatusRadios(statusDiv, index) {
     statusDiv.appendChild(progLabel);
     statusDiv.appendChild(completeRadio);
     statusDiv.appendChild(completeLabel);
-    // return completeRadio.value;
 
     //create another button to close the radios and return selected value
+    //create a button to return to readStatus
+    //from readStatus update function
+    const returnButton = document.createElement('button');
+    returnButton.setAttribute('class', 'return-button');
+    returnButton.setAttribute('type', 'button');
+    statusDiv.appendChild(returnButton);
+    returnButton.addEventListener('click', () => {
+        if (newStatusSelection) return newStatusSelection;
+    }, false);
+        
 }
