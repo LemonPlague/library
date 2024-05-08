@@ -152,7 +152,7 @@ function myLibraryToCards() {
         statusButton.addEventListener('click', () => {
             //clear status div
             statusDiv.innerHTML = '';
-            const newStatus = newStatusRadios(statusDiv);
+            const newStatus = newStatusRadios(statusDiv, index);
             if (newStatus) {
                 myLibrary[index].readStatus = newStatus;
                 myLibraryToCards();
@@ -199,7 +199,7 @@ function myLibraryToCards() {
     })    
 }
 
-function newStatusRadios(statusDiv) {
+function newStatusRadios(statusDiv, index) {
 
     let newStatusSelection = null;
     //create common attributes for the following inputs
@@ -212,9 +212,9 @@ function newStatusRadios(statusDiv) {
     const holdRadio = document.createElement('input');    
     Object.assign(holdRadio, inputAttributes);
     holdRadio.setAttribute('value', 'on hold');
-    holdRadio.setAttribute('id', 'update-on-hold');
+    holdRadio.id = `on-hold-${index}`;
     const holdLabel = document.createElement('label');
-    holdLabel.setAttribute('for', 'update-on-hold');
+    holdLabel.setAttribute(`for`, `on-hold-${index}`);
     holdLabel.textContent = "on hold";
     holdRadio.addEventListener('click', () => {
         return holdRadio.value;
@@ -224,9 +224,9 @@ function newStatusRadios(statusDiv) {
     const progRadio = document.createElement('input');
     Object.assign(progRadio, inputAttributes);
     progRadio.setAttribute('value', 'in progress');
-    progRadio.setAttribute('id', 'update-in-progress');
+    progRadio.id = `in-progress-${index}`;
     const progLabel = document.createElement('label');
-    progLabel.setAttribute('for', 'update-in-progress');
+    progLabel.setAttribute(`for`, `in-progress-${index}`);
     progLabel.textContent = "in progress";
     progRadio.addEventListener('click', () => {
         return progRadio.value;
@@ -235,9 +235,9 @@ function newStatusRadios(statusDiv) {
     const completeRadio = document.createElement('input');
     Object.assign(completeRadio, inputAttributes);
     completeRadio.setAttribute('value', 'complete');
-    completeRadio.setAttribute('id', 'update-complete');
+    completeRadio.id = `complete-${index}`;
     const completeLabel = document.createElement('label');
-    completeLabel.setAttribute('for', 'update-complete');
+    completeLabel.setAttribute(`for`, `complete-${index}`);
     completeLabel.textContent = "complete";
     completeRadio.addEventListener('click', () => {
         return completeRadio.value;
