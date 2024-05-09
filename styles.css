@@ -40,15 +40,24 @@ header {
     background-color: var(--offWhiteColor);
 }
 .add-book {
-    text-align: center;
     padding: 5px 0 15px 0;
+    display: grid;
+    justify-content: center;
 }
 .add-book button {
-    height: 30px;
-    width: 100px;
     margin-top: 10px;
-    background-color: salmon;
     border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: filter 0.2s ease-in-out;
+}
+.add-book button:hover {
+    filter: brightness(90%);
 }
 
 /* CARD SPACE */
