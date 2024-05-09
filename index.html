@@ -37,32 +37,28 @@
             <h1>Add a book</h1>
             <label for="title">
                 Title: 
-                <input name="title" type="text" id="title" placeholder="Dune"
-                 required pattern="[a-zA-Z0-9 ]{3,50}"
-                 title="Title should contain only lowercase and uppercase letters, and numbers.">
+                <input name="title" type="text" id="title" placeholder="Dune">
             </label>
             <label for="author">
                 Author:
-                <input name="author" type="text" id="author" placeholder="Frank Herbert"
-                 required pattern="[a-zA-Z ]{3,20}">
+                <input name="author" type="text" id="author" placeholder="Frank Herbert">
             </label>
             <label for="length">
                 Length:
-                <input name="length" type="text" id="length" placeholder="21 hours / 180 pages"
-                 required maxlength="15" pattern="[\d]{1,4} [\w]{5}">
+                <input name="length" type="text" id="length" placeholder="21 hours / 180 pages">
             </label>
             <div class="read-status" id="checkboxes">                
                 <label for="on-hold">
                     On Hold
-                    <input name="status" type="radio" value="on hold" id="on-hold" required>
+                    <input name="status" type="radio" value="on hold" id="on-hold">
                 </label>
                 <label for="in-progress">
                     In Progress
-                    <input name="status" type="radio" value="in progress" id="in-progress" required>
+                    <input name="status" type="radio" value="in progress" id="in-progress">
                 </label>
                 <label for="complete">
                     Complete
-                    <input name="status" type="radio" value="complete" id="complete" required>
+                    <input name="status" type="radio" value="complete" id="complete">
                 </label>
             </div>
             <button class="submit-button" type="submit" value="Add book">Submit</button>

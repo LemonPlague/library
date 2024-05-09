@@ -1,6 +1,4 @@
 // --------TODO--------
-// 2. due to HTML issues, the form controls must be implimented in javascript
-
 // 3. add a delete button on each book that triggers a warning confirmation
 
 // 4. add a date to the forms
@@ -11,16 +9,17 @@
 
 
 // ------------INITIAL VARIABLES------------
+// Variables for main function
 const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
 const cardSpace = document.querySelector('.card-space');
-// Array to hold multiple cards
+// Array to hold multiple objects(cards)
 const myLibrary = [];
 
 
 
-// ------------ MAIN FUNCTION ------------
+// ------------ MAIN FUNCTIONS ------------
 //----when the submit button is pushed----
 
 function addNewBook() {
@@ -60,12 +59,13 @@ dialog.addEventListener('click', (event) => {
 //cancel dialog-server communication and then
 //execute main functions
 submitButton.addEventListener("click", (e) => {
-    e.preventDefault(); //this also prevents the HTML regex pattern in the dialog
+    e.preventDefault(); //this also prevents native HTML form validation
+                        //but which is throwing errors anyway so oh well!
     addNewBook();
 });
 
 
-// ------------ FUNCTIONS ------------
+// ------------ MAIN FUNCTIONS: FUNCTIONS ------------
 // Book constructor
 function Book(newTitle, newAuthor, newLength, newReadStatus) {
     this.title = newTitle;
