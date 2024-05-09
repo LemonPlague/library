@@ -81,6 +81,7 @@ header {
     height: 20px;
     width: 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .cover {
     background-color: var(--offWhiteColor);
@@ -165,15 +166,6 @@ header {
 .status input {
     font-size: .8rem;
     justify-self: end;
-}
-.return-button {
-    position: absolute;
-    height: 20px;
-    width: 20px;
-    border-radius: 50px;
-    border: 1px solid black;
-    margin-left: 15px;
-    background-color: yellowgreen;
 }
 
 /* --DIALOG-- */
