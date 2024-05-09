@@ -76,6 +76,12 @@ header {
     padding: 1px;
     border-radius: 5px;
 }
+.remove-button {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+}
 .cover {
     background-color: var(--offWhiteColor);
     padding: 1px;
@@ -145,6 +151,11 @@ header {
     box-shadow: 0 0 3px 3px rgba(238, 221, 255, 0.7);
     color: white;
     background-color: rgb(130, 0, 236);
+    transition: filter 0.2s ease-in-out;
+    cursor: pointer;
+}
+.update-button:hover {
+    filter: brightness(90%);
 }
 /* status div radio buttons (populated by javascript) */
 .status label {

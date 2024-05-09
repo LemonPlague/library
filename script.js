@@ -111,6 +111,14 @@ function myLibraryToCards() {
         const card = document.createElement('div');
         card.setAttribute(`class`, `card`);
         card.id = `card${index}`;
+        //button to remove book from library
+        const removeButton = document.createElement('button');
+        removeButton.setAttribute('class', 'remove-button');
+        removeButton.setAttribute('type', 'button');
+        removeButton.id = `removeButton${index}`;
+        const removeButtonIMG = document.createElement('img');
+        removeButtonIMG.setAttribute('src', 'assets/close-octagon.svg');
+        removeButtonIMG.setAttribute('alt', 'remove book from library');
         //div to hold title & author
         const coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
@@ -170,6 +178,8 @@ function myLibraryToCards() {
         coverDiv.appendChild(authorDiv);
         card.appendChild(coverDiv);
         card.appendChild(infoDiv);
+        removeButton.appendChild(removeButtonIMG);
+        card.appendChild(removeButton);
         cardSpace.appendChild(card);
         
         //4. pimp out the aesthetics
