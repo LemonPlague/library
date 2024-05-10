@@ -204,7 +204,7 @@ function myLibraryToCards() {
         // --book length--
         const lengthType = lengthP.textContent.split(' ');
         if (lengthType[1] == 'hours') {
-            lengthDiv.style.backgroundColor = '#d66fc8';
+            lengthDiv.style.backgroundColor = '#e7aee0';
         } else if (lengthType[1] === 'pages') {
             lengthDiv.style.backgroundColor = '#e2d9bc';
         } else {
