@@ -71,13 +71,20 @@ submitButton.addEventListener("click", (e) => {
 cancelBtn.addEventListener('click', () => {
     removalDialog.close();
 });
-
-// CURRENTLY WORKING THIS OUT BUT PARENTNODE RETURNS NULL
 cardSpace.addEventListener('click', (e) => {
+    console.log("Clicked element:", e.target); // Check what element is actually clicked    
     if (e.target.classList.contains('update-button')) {
-        console.log(e.target.parentNode);
+        const index = e.target.closest('.card').id - 1;
+        const statusDiv = e.target.closest('.status');
+        updateReadStatus(statusDiv, index);
+    } else if (e.target.classList.contains('remove-button-IMG') ) {
+        const index = e.target.closest('.card').id - 1;
+        console.log(`index is ${index}`);
+        removeTitle.textContent = myLibrary[index].title;
+        removalDialog.showModal();
+        deleteBook(index);
     }
-})
+});
 
 
 // ------------ MAIN FUNCTIONS: FUNCTIONS ------------
@@ -134,20 +141,10 @@ function myLibraryToCards() {
         const removeButton = document.createElement('button');
         removeButton.classList.add('remove-button');
         removeButton.setAttribute('type', 'button');
-        removeButton.id = `${index + 1}`;
         const removeButtonIMG = document.createElement('img');
         removeButtonIMG.setAttribute('src', 'assets/close-octagon.svg');
         removeButtonIMG.setAttribute('alt', 'remove book from library');
-        // removeButton.addEventListener('click', () => {
-        //     removalDialog.showModal();
-        //     removeTitle.textContent = myLibrary[index].title;
-        //     confirmBtn.addEventListener('click', (e) => {
-        //         e.preventDefault();
-        //         removalDialog.close();
-        //         // saveToLocalStorage();
-        //     });
-        // });
-
+        removeButtonIMG.classList.add('remove-button-IMG');
         //div to hold title & author
         const coverDiv = document.createElement('div');
         coverDiv.classList.add(`cover`);
@@ -182,12 +179,6 @@ function myLibraryToCards() {
         statusButton.setAttribute('type', 'button');
         statusButton.id = `${index + 1}`;
         statusButton.textContent = "Update";
-        //readStatus update function
-        statusButton.addEventListener('click', () => {
-            //clear status div
-            statusDiv.innerHTML = '';
-            updateReadStatus(statusDiv, index);
-        }, false);      
 
         //2. populate appropriate elements with data
         titleH2.textContent = book.title;
@@ -298,6 +289,17 @@ function updateReadStatus(statusDiv, index) {
     statusDiv.appendChild(progLabel);
     statusDiv.appendChild(completeRadio);
     statusDiv.appendChild(completeLabel);
+}
+
+function deleteBook(index) {
+    confirmBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        removalDialog.close();
+        myLibrary.splice(index, 1);
+        console.log(`deleted book at index ${index}`);
+        myLibraryToCards();
+        // saveToLocalStorage();
+    });
 }
 
 // ------------ SAVE LIBRARY ------------
