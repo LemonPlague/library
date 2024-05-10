@@ -205,8 +205,11 @@ function myLibraryToCards() {
         const lengthType = lengthP.textContent.split(' ');
         if (lengthType[1] == 'hours') {
             lengthDiv.style.backgroundColor = '#d66fc8';
+        } else if (lengthType[1] === 'pages') {
+            lengthDiv.style.backgroundColor = '#e2d9bc';
         } else {
-            lengthDiv.style.backgroundColor = '#8b5ba7';
+            lengthDiv.style.backgroundColor = '#302f33';
+            lengthP.style.color = '#FFFFFF';
         }
 
         // --read status--
@@ -214,8 +217,11 @@ function myLibraryToCards() {
             statusDiv.style.backgroundColor = '#eca95d';
         } else if (statusP.textContent == 'in progress') {
             statusDiv.style.backgroundColor = '#5dc3ec';
-        } else {
+        } else if (statusP.textContent == 'complete') {
             statusDiv.style.backgroundColor = '#8cc98c';
+        } else {
+            statusDiv.style.backgroundColor = '#302f33';
+            statusP.style.color = '#FFFFFF';
         }
     })    
 }

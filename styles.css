@@ -14,8 +14,11 @@
 :root {
     --PrimaryColor: rgb(24, 85, 69);
     --offWhiteColor: rgb(240, 240, 240);
+    /* length correlation colors */
     --audio: #d66fc8;
-    --paper: #8b5ba7;
+    --paper: #e2d9bc;
+    /* status correlation colors */
+    --watch-list: #302f33;
     --on-hold: #eca95d;
     --in-progress: #5dc3ec;
     --complete: #8cc98c;
