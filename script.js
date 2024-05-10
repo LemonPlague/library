@@ -15,7 +15,6 @@ const removalDialog = document.querySelector('#remove-dialog');
 const removeTitle = document.querySelector('#remove-title-name');
 const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn = document.querySelector('.confirm-button');
-let bookToDelete = null;
 // Array to hold multiple objects(cards)
 let myLibrary = [];
 
@@ -73,6 +72,14 @@ cancelBtn.addEventListener('click', () => {
     removalDialog.close();
 });
 
+// CURRENTLY WORKING THIS OUT BUT PARENTNODE RETURNS NULL
+cardSpace.addEventListener('click', (e) => {
+    if (e.target.classList.contains('update-button')) {
+        console.log(e.target.parentNode);
+    }
+})
+
+
 // ------------ MAIN FUNCTIONS: FUNCTIONS ------------
 // Book constructor
 function Book(newTitle, newAuthor, newLength, newReadStatus) {
@@ -121,60 +128,59 @@ function myLibraryToCards() {
         //1. create a card for each book in the library
         //----element creation from largest to smallest (top section)----
         const card = document.createElement('div');
-        card.setAttribute(`class`, `card`);
-        card.id = `card${index}`;
+        card.classList.add('card');
+        card.id = `${index + 1}`;
         //button to remove book from library
         const removeButton = document.createElement('button');
-        removeButton.setAttribute('class', 'remove-button');
+        removeButton.classList.add('remove-button');
         removeButton.setAttribute('type', 'button');
-        removeButton.id = `removeButton${index}`;
+        removeButton.id = `${index + 1}`;
         const removeButtonIMG = document.createElement('img');
         removeButtonIMG.setAttribute('src', 'assets/close-octagon.svg');
         removeButtonIMG.setAttribute('alt', 'remove book from library');
-        removeButton.addEventListener('click', () => {
-            removalDialog.showModal();
-            removeTitle.textContent = myLibrary[index].title;
-            confirmBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                bookToDelete = index;
-                removalDialog.close();
-                // saveToLocalStorage();
-            });
-        });
+        // removeButton.addEventListener('click', () => {
+        //     removalDialog.showModal();
+        //     removeTitle.textContent = myLibrary[index].title;
+        //     confirmBtn.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         removalDialog.close();
+        //         // saveToLocalStorage();
+        //     });
+        // });
 
         //div to hold title & author
         const coverDiv = document.createElement('div');
-        coverDiv.setAttribute(`class`, `cover`);
+        coverDiv.classList.add(`cover`);
         //create div to hold the title
         const titleDiv = document.createElement('div');
-        titleDiv.setAttribute('class', `title`);    
+        titleDiv.classList.add(`title`);    
         //title
         const titleH2 = document.createElement('h2');
         //div to hold the author
         const authorDiv = document.createElement('div');
-        authorDiv.setAttribute('class', 'author');
+        authorDiv.classList.add('author');
         //author
         const authorH4 = document.createElement('h4');
 
         //----element creation from largest to smallest(bottom section)----
         //div to hold length and status
         const infoDiv = document.createElement('div');
-        infoDiv.setAttribute('class', 'info');
+        infoDiv.classList.add('info');
         //div to hold length
         const lengthDiv = document.createElement('div');
-        lengthDiv.setAttribute('class', 'length');
+        lengthDiv.classList.add('length');
         //length
         const lengthP = document.createElement('p');
         //div to hold status
         const statusDiv = document.createElement('div');
-        statusDiv.setAttribute('class', 'status');
+        statusDiv.classList.add('status');
         //status
         const statusP = document.createElement('p');
         //status update button
         const statusButton = document.createElement('button');
-        statusButton.setAttribute('class', 'update-button');
+        statusButton.classList.add('update-button');
         statusButton.setAttribute('type', 'button');
-        statusButton.id = `button${index}`;
+        statusButton.id = `${index + 1}`;
         statusButton.textContent = "Update";
         //readStatus update function
         statusButton.addEventListener('click', () => {
@@ -306,14 +312,3 @@ function loadFromLocalStorage() {
   function saveToLocalStorage() {
     localStorage.setItem('library', JSON.stringify(myLibrary));
   }
-
-
-
-
-  
-  // myLibrarytoCards();
-    // try myLibrary.forEach()
-        //if cardToDelete is null
-            //create cards
-        // else 
-            //delete specified card & cardToDelete = null
