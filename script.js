@@ -228,6 +228,7 @@ function myLibraryToCards() {
 }
 
 function updateReadStatus(statusDiv, index) {
+    statusDiv.innerHTML = '';
     //create common attributes for the following inputs
     const inputAttributes = {
         name: 'newStatus',
