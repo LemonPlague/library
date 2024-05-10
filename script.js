@@ -67,7 +67,7 @@ submitButton.addEventListener("click", (e) => {
                         //but which is throwing errors anyway so oh well!
     addNewBook();
 });
-// ------------EVENT LISTENERS (removal)------------
+// ------------EVENT LISTENERS (book removal)------------
 cancelBtn.addEventListener('click', () => {
     removalDialog.close();
 });
@@ -78,7 +78,7 @@ cardSpace.addEventListener('click', (e) => {
         const statusDiv = e.target.closest('.status');
         if (statusDiv.style.backgroundColor === 'rgb(48, 47, 51)') statusDiv.style.color = '#FFFFFF';
         updateReadStatus(statusDiv, index);
-    } else if (e.target.classList.contains('remove-button-IMG') ) {
+    } else if (e.target.classList.contains('remove-button-IMG')) {
         const index = e.target.closest('.card').id - 1;
         console.log(`index is ${index}`);
         removeTitle.textContent = myLibrary[index].title;
@@ -124,15 +124,11 @@ function checkForMatch(newBook) {
 }
 
 //function used to rebuild the cards after any change to myLibrary
-function myLibraryToCards() {    
-
+function myLibraryToCards() {
     //first remove all cards
     cardSpace.innerHTML = '';
-
     //loop over each object in library and make a card
     myLibrary.forEach((book, index) => {
-
-
         //1. create a card for each book in the library
         //----element creation from largest to smallest (top section)----
         const card = document.createElement('div');
@@ -178,7 +174,6 @@ function myLibraryToCards() {
         const statusButton = document.createElement('button');
         statusButton.classList.add('update-button');
         statusButton.setAttribute('type', 'button');
-        statusButton.id = `${index + 1}`;
         statusButton.textContent = "Update";
 
         //2. populate appropriate elements with data
@@ -226,7 +221,6 @@ function myLibraryToCards() {
             statusDiv.style.backgroundColor = '#302f33';
             statusP.style.color = '#FFFFFF';
         }
-        
     })
 }
 
@@ -249,7 +243,6 @@ function updateReadStatus(statusDiv, index) {
         //update readStatus of object in library
         myLibrary[index].readStatus = holdRadio.value;
         // saveToLocalStorage();
-        //rebuild the cards
         myLibraryToCards();
     });
     //2. in progress
@@ -264,7 +257,6 @@ function updateReadStatus(statusDiv, index) {
         //update readStatus of object in library
         myLibrary[index].readStatus = progRadio.value;
         // saveToLocalStorage();
-        //rebuild the cards
         myLibraryToCards();
     });
     //3. complete
@@ -279,7 +271,6 @@ function updateReadStatus(statusDiv, index) {
         //update readStatus of object in library
         myLibrary[index].readStatus = completeRadio.value;
         // saveToLocalStorage();
-        //rebuild the cards
         myLibraryToCards();
     });
 
