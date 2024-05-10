@@ -1,9 +1,9 @@
 // --------TODO--------
-// 4. add a date to the forms
+// 4. implement a save feature
 
-// 5. implement a save feature
+// 5. add another readStatus: "watchList"
 
-// 6. add another readStatus: "watchList"
+// 6. add a date to the forms
 
 
 // ------------INITIAL VARIABLES------------
@@ -276,3 +276,16 @@ function updateReadStatus(statusDiv, index) {
     statusDiv.appendChild(completeRadio);
     statusDiv.appendChild(completeLabel);
 }
+
+// ------------ SAVE LIBRARY ------------
+function loadFromLocalStorage() {
+    const storedLibrary = JSON.parse(localStorage.getItem('library'));
+    if (storedLibrary) {
+      myLibrary = storedLibrary.map(book => new Book(book.title, book.author, book.length, book.readStatus));
+      myLibraryToCards();
+    }
+  }
+  
+  function saveToLocalStorage() {
+    localStorage.setItem('library', JSON.stringify(myLibrary));
+  }
