@@ -15,6 +15,7 @@ const removalDialog = document.querySelector('#remove-dialog');
 const removeTitle = document.querySelector('#remove-title-name');
 const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn = document.querySelector('.confirm-button');
+let bookToDelete = null;
 // Array to hold multiple objects(cards)
 let myLibrary = [];
 
@@ -23,7 +24,7 @@ let myLibrary = [];
 // ------------ MAIN FUNCTIONS ------------
 //----when the submit button is pushed----
 
-loadFromLocalStorage();
+// loadFromLocalStorage();
 
 function addNewBook() {
 
@@ -40,7 +41,7 @@ function addNewBook() {
     //4. if the title does not already exist, push it to myLibrary and rebuild cards
     if (!bookMatch) {        
         myLibrary.push(newBook);
-        saveToLocalStorage();
+        // saveToLocalStorage();
         myLibraryToCards();
     } else {
         console.log(`The title you entered already exists
@@ -108,11 +109,15 @@ function checkForMatch(newBook) {
 }
 
 //function used to rebuild the cards after any change to myLibrary
-function myLibraryToCards() {   
+function myLibraryToCards() {    
+
     //first remove all cards
     cardSpace.innerHTML = '';
 
+    //loop over each object in library and make a card
     myLibrary.forEach((book, index) => {
+
+
         //1. create a card for each book in the library
         //----element creation from largest to smallest (top section)----
         const card = document.createElement('div');
@@ -129,11 +134,11 @@ function myLibraryToCards() {
         removeButton.addEventListener('click', () => {
             removalDialog.showModal();
             removeTitle.textContent = myLibrary[index].title;
-            confirmBtn.addEventListener('click', () => {
-                myLibrary.splice(index, 1);
+            confirmBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                bookToDelete = index;
                 removalDialog.close();
-                saveToLocalStorage();
-                myLibraryToCards();
+                // saveToLocalStorage();
             });
         });
 
@@ -223,7 +228,8 @@ function myLibraryToCards() {
             statusDiv.style.backgroundColor = '#302f33';
             statusP.style.color = '#FFFFFF';
         }
-    })    
+        
+    })
 }
 
 function updateReadStatus(statusDiv, index) {
@@ -244,7 +250,7 @@ function updateReadStatus(statusDiv, index) {
     holdRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = holdRadio.value;
-        saveToLocalStorage();
+        // saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
@@ -259,7 +265,7 @@ function updateReadStatus(statusDiv, index) {
     progRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = progRadio.value;
-        saveToLocalStorage();
+        // saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
@@ -274,7 +280,7 @@ function updateReadStatus(statusDiv, index) {
     completeRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = completeRadio.value;
-        saveToLocalStorage();
+        // saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
@@ -300,3 +306,14 @@ function loadFromLocalStorage() {
   function saveToLocalStorage() {
     localStorage.setItem('library', JSON.stringify(myLibrary));
   }
+
+
+
+
+  
+  // myLibrarytoCards();
+    // try myLibrary.forEach()
+        //if cardToDelete is null
+            //create cards
+        // else 
+            //delete specified card & cardToDelete = null
