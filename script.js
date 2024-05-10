@@ -76,6 +76,7 @@ cardSpace.addEventListener('click', (e) => {
     if (e.target.classList.contains('update-button')) {
         const index = e.target.closest('.card').id - 1;
         const statusDiv = e.target.closest('.status');
+        if (statusDiv.style.backgroundColor === 'rgb(48, 47, 51)') statusDiv.style.color = '#FFFFFF';
         updateReadStatus(statusDiv, index);
     } else if (e.target.classList.contains('remove-button-IMG') ) {
         const index = e.target.closest('.card').id - 1;
