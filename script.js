@@ -1,5 +1,7 @@
-// --------TODO--------
-// 6. add a date to the forms
+// --------TODO (if expanding)--------
+// 1. add a date to the forms
+// 2. add filters for book view
+// 3. add sort options
 
 
 // ------------INITIAL VARIABLES------------
