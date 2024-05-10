@@ -18,7 +18,7 @@ const removeTitle = document.querySelector('#remove-title-name');
 const cancelBtn = document.querySelector('.cancel-button');
 const confirmBtn = document.querySelector('.confirm-button');
 // Array to hold multiple objects(cards)
-const myLibrary = [];
+let myLibrary = [];
 
 
 
