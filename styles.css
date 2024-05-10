@@ -36,7 +36,13 @@ body {
 header {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    padding: 15px 0 15px 0;
+    padding: 15px 0 15px 15px;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+header h1 {
+    justify-self: start;
 }
 
 /* ---------main content--------- */
