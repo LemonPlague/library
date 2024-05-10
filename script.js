@@ -1,5 +1,5 @@
 // --------TODO--------
-// 5. add another readStatus: "watchList"
+//FIX BUG: MULTIPLE BOOKS DELETED IN ONE PRESS AFTER DELETING MORE THAN 1 BOOK
 
 // 6. add a date to the forms
 

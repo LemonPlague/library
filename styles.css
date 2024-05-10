@@ -202,8 +202,14 @@ header h1 {
     padding: 0 10px 0 10px;
     font-weight: bold;
 }
+#checkboxes {    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
 #checkboxes label {
     font-size: 12px;
+    justify-self: center;
 }
 form input {
     padding: 3px 0 3px 3px;
