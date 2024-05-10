@@ -270,8 +270,18 @@ footer {
     align-items: center;
     justify-content: center;
     justify-items: center;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
 }
 .created-by {
     font-weight: bold;
     font-size: 1.5rem;
+}
+footer a {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    font-weight: bold;
 }
