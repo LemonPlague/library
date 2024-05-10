@@ -14,6 +14,11 @@ const addNewBookButton = document.querySelector('.add-that-book');
 const submitButton = document.querySelector('.submit-button');
 const dialog = document.querySelector('#book-dialog');
 const cardSpace = document.querySelector('.card-space');
+//variables for book removal
+const removalDialog = document.querySelector('#remove-dialog');
+const removeTitle = document.querySelector('#remove-title-name');
+const cancelBtn = document.querySelector('.cancel-button');
+const confirmBtn = document.querySelector('.confirm-button');
 // Array to hold multiple objects(cards)
 const myLibrary = [];
 
@@ -45,7 +50,7 @@ function addNewBook() {
 }
 
 
-// ------------EVENT LISTENERS------------
+// ------------EVENT LISTENERS (main)------------
 // open the dialog when the button is clicked
 addNewBookButton.addEventListener('click', () => {
     dialog.showModal();
@@ -63,7 +68,10 @@ submitButton.addEventListener("click", (e) => {
                         //but which is throwing errors anyway so oh well!
     addNewBook();
 });
-
+// ------------EVENT LISTENERS (removal)------------
+cancelBtn.addEventListener('click', () => {
+    removalDialog.close();
+});
 
 // ------------ MAIN FUNCTIONS: FUNCTIONS ------------
 // Book constructor
@@ -119,6 +127,16 @@ function myLibraryToCards() {
         const removeButtonIMG = document.createElement('img');
         removeButtonIMG.setAttribute('src', 'assets/close-octagon.svg');
         removeButtonIMG.setAttribute('alt', 'remove book from library');
+        removeButton.addEventListener('click', () => {
+            removalDialog.showModal();
+            removeTitle.textContent = myLibrary[index].title;
+            confirmBtn.addEventListener('click', () => {
+                myLibrary.splice(index, 1);
+                removalDialog.close();
+                myLibraryToCards();
+            });
+        });
+
         //div to hold title & author
         const coverDiv = document.createElement('div');
         coverDiv.setAttribute(`class`, `cover`);
