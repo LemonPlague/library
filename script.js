@@ -1,6 +1,4 @@
 // --------TODO--------
-// 3. add a delete button on each book that triggers a warning confirmation
-
 // 4. add a date to the forms
 
 // 5. implement a save feature
