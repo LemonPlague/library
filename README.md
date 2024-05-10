@@ -8,4 +8,4 @@ making this a great, simple app to track books.
 
 [Check out the page here.](https://lemonplague.github.io/library/)
 
-![Screenshot of my project](https://www.dropbox.com/scl/fi/lhm4d6yv2gfisppqigudx/library.png)
+![Screenshot of my project](https://github.com/LemonPlague/library/blob/main/assets/library.png)
