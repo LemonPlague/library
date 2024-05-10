@@ -155,7 +155,7 @@ header {
     transition: filter 0.2s ease-in-out;
     cursor: pointer;
 }
-.update-button:hover {
+button:hover {
     filter: brightness(90%);
 }
 /* status div radio buttons (populated by javascript) */
@@ -168,7 +168,7 @@ header {
     justify-self: end;
 }
 
-/* --DIALOG-- */
+/* --ADD BOOK DIALOG-- */
 #book-dialog {
     justify-self: center;
     align-self: center;
@@ -212,11 +212,49 @@ form input:focus {
     height: 30px;
     width: 90px;
 }
-#book-dialog::backdrop {
+dialog::backdrop {
     background-color: rgba(39, 38, 38, 0.2);
     backdrop-filter: blur(2px);
 }
 
+/* --REMOVE BOOK DIALOG-- */
+#remove-dialog {
+    justify-self: center;
+    align-self: center;
+    width: 300px;
+    height: 200px;
+    border: 1rem solid rgb(140, 0, 255);
+    box-shadow: -5px 5px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+}
+#remove-dialog form {
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    justify-content: center;
+    align-content: center;
+}
+#remove-dialog h1 {
+    padding-top: 10px;
+}
+#remove-dialog p {
+    text-align: center;
+    padding-top: 30px;
+    font-style: italic;
+    font-size: 2rem;
+}
+.remove-dialog-buttons {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+.remove-dialog-buttons button {
+    width: 75px;
+    height: 35px;
+    border-radius: 10px;
+    transition: filter 0.2s ease-in-out;
+    box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.5);
+    background-color: aqua;
+}
 
 /* ---------footer--------- */
 footer {
