@@ -1,6 +1,4 @@
 // --------TODO--------
-// 4. implement a save feature
-
 // 5. add another readStatus: "watchList"
 
 // 6. add a date to the forms
