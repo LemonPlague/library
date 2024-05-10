@@ -23,7 +23,7 @@ let myLibrary = [];
 // ------------ MAIN FUNCTIONS ------------
 //----when the submit button is pushed----
 
-// loadFromLocalStorage();
+loadFromLocalStorage();
 
 function addNewBook() {
 
@@ -71,8 +71,7 @@ submitButton.addEventListener("click", (e) => {
 cancelBtn.addEventListener('click', () => {
     removalDialog.close();
 });
-cardSpace.addEventListener('click', (e) => {
-    console.log("Clicked element:", e.target); // Check what element is actually clicked    
+cardSpace.addEventListener('click', (e) => {   
     if (e.target.classList.contains('update-button')) {
         const index = e.target.closest('.card').id - 1;
         const statusDiv = e.target.closest('.status');
@@ -80,10 +79,16 @@ cardSpace.addEventListener('click', (e) => {
         updateReadStatus(statusDiv, index);
     } else if (e.target.classList.contains('remove-button-IMG')) {
         const index = e.target.closest('.card').id - 1;
-        console.log(`index is ${index}`);
+        console.log(`selected title's object index is ${index}`);
         removeTitle.textContent = myLibrary[index].title;
-        removalDialog.showModal();
-        deleteBook(index);
+        // removalDialog.showModal();
+        // deleteBook(index);
+        if (confirm("Delete this title?")) {
+            console.log(`deleted title at index ${index}`);
+            myLibrary.splice(index, 1);
+            saveToLocalStorage();
+            myLibraryToCards();
+        }
     }
 });
 
@@ -242,7 +247,7 @@ function updateReadStatus(statusDiv, index) {
     holdRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = holdRadio.value;
-        // saveToLocalStorage();
+        saveToLocalStorage();
         myLibraryToCards();
     });
     //2. in progress
@@ -256,7 +261,7 @@ function updateReadStatus(statusDiv, index) {
     progRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = progRadio.value;
-        // saveToLocalStorage();
+        saveToLocalStorage();
         myLibraryToCards();
     });
     //3. complete
@@ -270,7 +275,7 @@ function updateReadStatus(statusDiv, index) {
     completeRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = completeRadio.value;
-        // saveToLocalStorage();
+        saveToLocalStorage();
         myLibraryToCards();
     });
 
@@ -283,16 +288,16 @@ function updateReadStatus(statusDiv, index) {
     statusDiv.appendChild(completeLabel);
 }
 
-function deleteBook(index) {
-    confirmBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        removalDialog.close();
-        myLibrary.splice(index, 1);
-        console.log(`deleted book at index ${index}`);
-        myLibraryToCards();
-        // saveToLocalStorage();
-    });
-}
+// function deleteBook(index) {
+//     confirmBtn.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         removalDialog.close();
+//         myLibrary.splice(index, 1);
+//         console.log(`deleted book at index ${index}`);
+//         myLibraryToCards();
+//         // saveToLocalStorage();
+//     });
+// }
 
 // ------------ SAVE LIBRARY ------------
 function loadFromLocalStorage() {
