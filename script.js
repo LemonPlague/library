@@ -25,6 +25,8 @@ const myLibrary = [];
 // ------------ MAIN FUNCTIONS ------------
 //----when the submit button is pushed----
 
+loadFromLocalStorage();
+
 function addNewBook() {
 
     //1. get values from the dialog stored into newBook
@@ -40,6 +42,7 @@ function addNewBook() {
     //4. if the title does not already exist, push it to myLibrary and rebuild cards
     if (!bookMatch) {        
         myLibrary.push(newBook);
+        saveToLocalStorage();
         myLibraryToCards();
     } else {
         console.log(`The title you entered already exists
@@ -131,6 +134,7 @@ function myLibraryToCards() {
             confirmBtn.addEventListener('click', () => {
                 myLibrary.splice(index, 1);
                 removalDialog.close();
+                saveToLocalStorage();
                 myLibraryToCards();
             });
         });
@@ -236,6 +240,7 @@ function updateReadStatus(statusDiv, index) {
     holdRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = holdRadio.value;
+        saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
@@ -250,6 +255,7 @@ function updateReadStatus(statusDiv, index) {
     progRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = progRadio.value;
+        saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
@@ -264,6 +270,7 @@ function updateReadStatus(statusDiv, index) {
     completeRadio.addEventListener('click', () => {
         //update readStatus of object in library
         myLibrary[index].readStatus = completeRadio.value;
+        saveToLocalStorage();
         //rebuild the cards
         myLibraryToCards();
     });
