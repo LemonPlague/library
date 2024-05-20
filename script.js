@@ -40,7 +40,7 @@ function addNewBook() {
     //4. if the title does not already exist, push it to myLibrary and rebuild cards
     if (!bookMatch) {        
         myLibrary.push(newBook);
-        // saveToLocalStorage();
+        saveToLocalStorage();
         myLibraryToCards();
     } else {
         console.log(`The title you entered already exists
@@ -288,17 +288,6 @@ function updateReadStatus(statusDiv, index) {
     statusDiv.appendChild(completeRadio);
     statusDiv.appendChild(completeLabel);
 }
-
-// function deleteBook(index) {
-//     confirmBtn.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         removalDialog.close();
-//         myLibrary.splice(index, 1);
-//         console.log(`deleted book at index ${index}`);
-//         myLibraryToCards();
-//         // saveToLocalStorage();
-//     });
-// }
 
 // ------------ SAVE LIBRARY ------------
 function loadFromLocalStorage() {
